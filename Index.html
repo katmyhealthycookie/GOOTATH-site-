@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GOODATH® — Retail & Distribution</title>
+  <meta name="description" content="GOODATH® — unforgettable flavors made with real ingredients. Retail & distribution inquiries, sample requests, and partnership applications." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GOODATH® — Retail & Distribution" />
+  <meta property="og:description" content="Unforgettable flavors. Real ingredients. Built for retail velocity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://goodath.com" />
+  <!-- <meta property="og:image" content="https://goodath.com/og.jpg" /> -->
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ctext y='0.9em' font-size='96'%3EG%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --panel:#111117;
+      --panel2:#0f0f14;
+      --text:#f5f5f7;
+      --muted:#b9bac3;
+      --line:rgba(255,255,255,.10);
+      --accent:#ff7a1a; /* GOODATH orange */
+      --accent2:#ffd3b3;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 20px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(255,122,26,.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 0%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, #07070a 0%, #0b0b0d 35%, #07070a 100%);
+      color:var(--text);
+      letter-spacing:.2px;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(11,11,13,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.6px}
+    .dot{
+      width:14px; height:14px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--accent) 60%, #b14a00 100%);
+      box-shadow: 0 0 0 6px rgba(255,122,26,.08);
+    }
+    .nav-links{display:flex; gap:14px; align-items:center}
+    .nav-links a{color:var(--muted); font-weight:600; font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06)}
+    .btn.primary{
+      border-color: rgba(255,122,26,.55);
+      background: linear-gradient(135deg, rgba(255,122,26,.95), rgba(255,122,26,.65));
+      color:#111;
+    }
+    .btn.primary:hover{border-color: rgba(255,122,26,.75)}
+    .hero{padding:44px 0 18px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{padding:26px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius: 999px;
+      border:1px solid rgba(255,122,26,.35);
+      background: rgba(255,122,26,.10);
+      color: var(--accent2);
+      font-weight:700;
+      font-size:13px;
+    }
+    h1{
+      margin:16px 0 10px;
+      font-size:48px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    @media (max-width: 520px){ h1{font-size:38px} }
+    .sub{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      margin:0 0 18px;
+      max-width: 58ch;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .mini{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:12px;
+    }
+    .hero-aside{padding:18px; display:flex; flex-direction:column; gap:12px}
+    .aside-top{
+      border-radius: var(--radius);
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.02);
+      padding:16px;
+      min-height: 220px;
+      display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .ph{
+      height: 140px;
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(255,122,26,.18), rgba(255,255,255,.04)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 12px, rgba(255,255,255,.02) 12px 24px);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .aside-title{font-weight:800; letter-spacing:.3px}
+    .aside-note{color:var(--muted); font-size:13px; line-height:1.45}
+    .section{padding:26px 0}
+    .section h2{
+      margin:0 0 10px;
+      font-size:24px;
+      letter-spacing:-.2px;
+    }
+    .section p{margin:0; color:var(--muted); line-height:1.65}
+    .three{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .three{grid-template-columns:1fr} }
+    .tile{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .tile b{display:block; margin-bottom:6px}
+    .products{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 1000px){ .products{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 520px){ .products{grid-template-columns: 1fr} }
+    .p-card{
+      padding:14px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .p-img{
+      height:120px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(500px 200px at 20% 0%, rgba(255,122,26,.22), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(255,255,255,.55);
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .p-meta{color:var(--muted); font-size:13px; line-height:1.4}
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .split{grid-template-columns:1fr} }
+    label{display:block; font-size:13px; color:var(--muted); margin-bottom:6px; font-weight:650}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus, select:focus{border-color: rgba(255,122,26,.55)}
+    textarea{min-height:110px; resize:vertical}
+    .form-card{padding:18px}
+    .form-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .fine{
+      margin-top:10px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .footer{
+      padding:26px 0 40px;
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,.55);
+      font-size:13px;
+    }
+    .footer-row{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      color: rgba(255,255,255,.70);
+      font-weight:700;
+      font-size:12px;
+    }
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="GOODATH home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>GOODATH®</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#why">Why it sells</a>
+        <a href="#products">Flavors</a>
+        <a href="#partners">For retailers</a>
+        <a href="#contact">Request samples</a>
+      </nav>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a class="btn" href="#contact">Become a partner</a>
+        <a class="btn primary" href="#contact">Request samples</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div class="grid">
+        <div class="card hero-card">
+          <span class="kicker">Retail & Distribution • USA</span>
+          <h1>Unforgettable flavors.<br/>Real ingredients.</h1>
+          <p class="sub">
+            GOODATH® is a premium cookie built for <b>retail velocity</b>: crave-worthy flavors,
+            clean ingredient story, and an impulse-friendly format—ideal for convenience, grocery, and distribution.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">Request Samples</a>
+            <a class="btn" href="#partners">Retail Partner Info</a>
+            <a class="btn" href="#sell-sheet" onclick="alert('Sell sheet: add PDF link when ready.'); return false;">Download Sell Sheet (PDF)</a>
+          </div>
+
+          <div class="mini">
+            <span class="pill">Fast onboarding</span>
+            <span class="pill">Retail-ready packaging</span>
+            <span class="pill">Details <span class="mono">available upon request</span></span>
+          </div>
+        </div>
+
+        <aside class="card hero-aside">
+          <div class="aside-top">
+            <div class="ph" aria-hidden="true"></div>
+            <div>
+              <div class="aside-title">Add your packaging photos here</div>
+              <div class="aside-note">We’ll replace this block with your hero product image (PNG/JPG) and flavor lineup.</div>
+            </div>
+          </div>
+
+          <div class="tile">
+            <b>What buyers need in 30 seconds</b>
+            <div class="p-meta">
+              What it is • why it sells • where it sits • how to order • how to get samples.
+              This site is built exactly for that.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap section" id="why">
+      <h2>Why GOODATH sells</h2>
+      <p>Designed for repeat purchase: taste-first positioning with a real-ingredients story buyers can trust.</p>
+
+      <div class="three">
+        <div class="tile">
+          <b>Flavor memory</b>
+          <div class="p-meta">Distinct, “brain won’t forget” flavor profiles that drive word-of-mouth and re-buy.</div>
+        </div>
+        <div class="tile">
+          <b>Real ingredients</b>
+          <div class="p-meta">A clean story customers understand at a glance—no over-explaining at shelf.</div>
+        </div>
+        <div class="tile">
+          <b>Impulse-friendly</b>
+          <div class="p-meta">Perfect for checkout, snack aisle, coffee stations, and convenience locations.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="products">
+      <h2>Flavor lineup</h2>
+      <p>Replace each card with your actual pack shot + short flavor line.</p>
+
+      <div class="products">
+        <div class="p-card">
+          <div class="p-img">PASSION FRUIT</div>
+          <b>Passion Fruit</b>
+          <div class="p-meta">Bright tropical punch. Premium, craveable, instantly recognizable.</div>
+        </div>
+        <div class="p-card">
+          <div class="p-img">PIÑA COLADA</div>
+          <b>Piña Colada</b>
+          <div class="p-meta">Vacation vibe: pineapple + coconut notes with a smooth finish.</div>
+        </div>
+        <div class="p-card">
+          <div class="p-img">LEMON</div>
+          <b>Lemon</b>
+          <div class="p-meta">Clean citrus snap—pairs perfectly with coffee/tea occasions.</div>
+        </div>
+        <div class="p-card">
+          <div class="p-img">CHOC ORANGE</div>
+          <b>Chocolate Orange + Sea Salt</b>
+          <div class="p-meta">Rich chocolate, orange brightness, sea-salt contrast for adults.</div>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="tile">
+          <b>Retail-ready details</b>
+          <div class="p-meta">
+            UPC, case pack, SRP guidance, shelf life, and wholesale terms are available upon request
+            (we’ll add them when finalized).
+          </div>
+        </div>
+        <div class="tile">
+          <b>Placement suggestions</b>
+          <div class="p-meta">
+            Convenience: checkout + coffee station • Grocery: snack aisle • Distribution: mixed cases on request.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="partners">
+      <h2>Built for retailers & distributors</h2>
+      <p>Choose your path—same product, different ordering needs.</p>
+
+      <div class="three">
+        <div class="tile">
+          <b>Gas stations / Convenience</b>
+          <div class="p-meta">
+            High-velocity SKU set. Great for impulse + coffee. Ask for a “starter assortment.”
+          </div>
+        </div>
+        <div class="tile">
+          <b>Supermarkets</b>
+          <div class="p-meta">
+            Premium snack positioning with a real-ingredients story. Planogram support available.
+          </div>
+        </div>
+        <div class="tile">
+          <b>Distributors / Wholesale</b>
+          <div class="p-meta">
+            Distributor-friendly onboarding. Ship and case details provided upon request.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="contact">
+      <h2>Request samples / become a retail partner</h2>
+      <p>Fill the form and we’ll reply fast from <span class="mono">kat@myhealthycookie.com</span>.</p>
+
+      <div class="card form-card" style="margin-top:14px">
+        <form id="leadForm">
+          <div class="split">
+            <div>
+              <label for="company">Company</label>
+              <input id="company" name="company" placeholder="e.g., ABC Distributors" required />
+            </div>
+            <div>
+              <label for="role">Role</label>
+              <input id="role" name="role" placeholder="Buyer / Category Manager / Owner" />
+            </div>
+          </div>
+
+          <div class="split" style="margin-top:12px">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@company.com" required />
+            </div>
+            <div>
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" placeholder="+1 (___) ___-____" />
+            </div>
+          </div>
+
+          <div class="split" style="margin-top:12px">
+            <div>
+              <label for="channel">Interested in</label>
+              <select id="channel" name="channel">
+                <option>Convenience / Gas stations</option>
+                <option>Supermarket / Grocery</option>
+                <option>Distributor / Wholesale</option>
+                <option>Café / Hospitality</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="state">City / State</label>
+              <input id="state" name="state" placeholder="e.g., Miami, FL" />
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you need: samples, pricing, onboarding, expected volumes, locations, etc."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn primary" type="button" onclick="sendEmail()">Send email</button>
+            <a class="btn" href="mailto:kat@myhealthycookie.com?subject=GOODATH%20Retail%20Inquiry">Email directly</a>
+          </div>
+
+          <div class="fine">
+            Note: pricing, MOQ, case pack, shelf life, and shipping details are provided upon request (we’ll add them to the site once finalized).
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="wrap footer">
+      <div class="footer-row">
+        <div>© <span id="y"></span> GOODATH®. All rights reserved.</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <span class="pill">B2B: <span class="mono">kat@myhealthycookie.com</span></span>
+          <a class="pill" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function sendEmail(){
+      const f = document.getElementById('leadForm');
+      const company = encodeURIComponent(f.company.value || '');
+      const role = encodeURIComponent(f.role.value || '');
+      const email = encodeURIComponent(f.email.value || '');
+      const phone = encodeURIComponent(f.phone.value || '');
+      const channel = encodeURIComponent(f.channel.value || '');
+      const state = encodeURIComponent(f.state.value || '');
+      const message = encodeURIComponent(f.message.value || '');
+
+      const subject = encodeURIComponent('GOODATH — Retail/Distribution Inquiry');
+      const body =
+        `Company: ${decodeURIComponent(company)}%0D%0A` +
+        `Role: ${decodeURIComponent(role)}%0D%0A` +
+        `Email: ${decodeURIComponent(email)}%0D%0A` +
+        `Phone: ${decodeURIComponent(phone)}%0D%0A` +
+        `Interested in: ${decodeURIComponent(channel)}%0D%0A` +
+        `City/State: ${decodeURIComponent(state)}%0D%0A%0D%0A` +
+        `Message:%0D%0A${decodeURIComponent(message)}%0D%0A`;
+
+      const mailto = `mailto:kat@myhealthycookie.com?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+    }
+  </script>
+</body>
+</html>
