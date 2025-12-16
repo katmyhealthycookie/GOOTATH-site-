@@ -1,504 +1,574 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GOODATH® — Retail & Distribution</title>
-  <meta name="description" content="GOODATH® — unforgettable flavors made with real ingredients. Retail & distribution inquiries, sample requests, and partnership applications." />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="GOODATH® — Retail & Distribution" />
-  <meta property="og:description" content="Unforgettable flavors. Real ingredients. Built for retail velocity." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://goodath.com" />
-  <!-- <meta property="og:image" content="https://goodath.com/og.jpg" /> -->
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ctext y='0.9em' font-size='96'%3EG%3C/text%3E%3C/svg%3E">
+  <title>GOODATH — Unforgettable cookies</title>
+  <meta name="description" content="GOODATH — playful, delicious cookies for retailers & distributors. Request wholesale info." />
 
   <style>
     :root{
-      --bg:#0b0b0d;
-      --panel:#111117;
-      --panel2:#0f0f14;
-      --text:#f5f5f7;
-      --muted:#b9bac3;
-      --line:rgba(255,255,255,.10);
-      --accent:#ff7a1a; /* GOODATH orange */
-      --accent2:#ffd3b3;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 20px;
-      --radius2: 26px;
-      --max: 1120px;
+      /* Brand */
+      --brand:#6E1BAF;      /* from your logo */
+      --brand2:#8420D2;     /* lighter */
+      --brand3:#471171;     /* darker */
+      --accent:#FF7A1A;     /* GOODATH orange */
+      --ink:#0b0b12;
+      --card: rgba(255,255,255,.10);
+      --line: rgba(255,255,255,.16);
+      --txt: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --shadow: 0 22px 60px rgba(0,0,0,.35);
+      --radius: 22px;
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 20% -10%, rgba(255,122,26,.18), transparent 55%),
-                  radial-gradient(900px 700px at 90% 0%, rgba(255,255,255,.06), transparent 55%),
-                  linear-gradient(180deg, #07070a 0%, #0b0b0d 35%, #07070a 100%);
-      color:var(--text);
-      letter-spacing:.2px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--txt);
+      background:
+        radial-gradient(900px 600px at 15% 15%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(255,122,26,.16), transparent 60%),
+        radial-gradient(900px 600px at 70% 85%, rgba(132,32,210,.22), transparent 62%),
+        linear-gradient(160deg, var(--brand2), var(--brand));
+      overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(11,11,13,.55);
-      border-bottom: 1px solid var(--line);
+
+    /* playful floating blobs */
+    .blob{
+      position:absolute;
+      inset:auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), rgba(255,255,255,0) 60%),
+                  radial-gradient(circle at 70% 70%, rgba(255,122,26,.22), rgba(255,122,26,0) 62%);
+      filter: blur(2px);
+      border-radius: 50%;
+      opacity:.7;
+      animation: float 10s ease-in-out infinite;
+      pointer-events:none;
     }
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.6px}
-    .dot{
-      width:14px; height:14px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, #fff, var(--accent) 60%, #b14a00 100%);
-      box-shadow: 0 0 0 6px rgba(255,122,26,.08);
+    .blob.b1{ top:-140px; left:-120px; transform: rotate(12deg); }
+    .blob.b2{ bottom:-180px; right:-160px; animation-duration: 12s; }
+
+    @keyframes float{
+      0%,100%{ transform: translateY(0) translateX(0) scale(1); }
+      50%{ transform: translateY(18px) translateX(-10px) scale(1.03); }
     }
-    .nav-links{display:flex; gap:14px; align-items:center}
-    .nav-links a{color:var(--muted); font-weight:600; font-size:14px}
-    .nav-links a:hover{color:var(--text)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px;
-      border-radius: 14px;
+
+    .wrap{ max-width: 1080px; margin:0 auto; padding: 24px 18px 72px; position:relative; }
+
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding: 8px 4px 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+    .logo img{ width:100%; height:100%; object-fit:cover; }
+    .brand h1{ margin:0; font-size:16px; letter-spacing:.18em; text-transform:uppercase; }
+    .brand small{ display:block; margin-top:2px; color:var(--muted); letter-spacing:.06em; }
+
+    .actions{ display:flex; gap:10px; align-items:center; }
+    .pill{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      font-weight:700;
+      background: rgba(0,0,0,.12);
+      color: var(--txt);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size:13px;
+      letter-spacing:.04em;
+      backdrop-filter: blur(8px);
+    }
+    .btn{
+      border:0;
+      background: linear-gradient(135deg, var(--accent), #ff9a1a);
+      color:#120a02;
+      font-weight:800;
+      padding: 11px 14px;
+      border-radius: 999px;
       cursor:pointer;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-      user-select:none;
+      box-shadow: 0 14px 30px rgba(255,122,26,.28);
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06)}
-    .btn.primary{
-      border-color: rgba(255,122,26,.55);
-      background: linear-gradient(135deg, rgba(255,122,26,.95), rgba(255,122,26,.65));
-      color:#111;
+    .btn:active{ transform: translateY(1px); }
+
+    .hero{
+      margin-top: 12px;
+      padding: 26px 18px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
-    .btn.primary:hover{border-color: rgba(255,122,26,.75)}
-    .hero{padding:44px 0 18px}
-    .grid{
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr .9fr;
-      gap:22px;
-      align-items:stretch;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:center;
     }
     @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
-      .nav-links{display:none}
+      .hero-grid{ grid-template-columns: 1fr; }
     }
-    .card{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-    }
-    .hero-card{padding:26px}
+
     .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border-radius: 999px;
-      border:1px solid rgba(255,122,26,.35);
-      background: rgba(255,122,26,.10);
-      color: var(--accent2);
-      font-weight:700;
-      font-size:13px;
+      display:inline-flex; gap:8px; align-items:center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,.06);
     }
-    h1{
-      margin:16px 0 10px;
-      font-size:48px;
-      line-height:1.05;
-      letter-spacing:-.8px;
+    .kicker b{ color: var(--txt); }
+
+    .hero h2{
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 4.8vw, 50px);
+      line-height: 1.02;
+      letter-spacing:-.02em;
     }
-    @media (max-width: 520px){ h1{font-size:38px} }
+    .hero h2 .good{ color: #fff; font-weight:900; }
+    .hero h2 .ath{ color: var(--accent); font-weight:900; }
+
     .sub{
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      margin:0 0 18px;
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
       max-width: 58ch;
     }
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+
+    .cta-row{ display:flex; gap:10px; flex-wrap:wrap; }
+    .ghost{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--txt);
+      padding: 11px 14px;
+      border-radius: 999px;
+      cursor:pointer;
+    }
+
+    .mini-cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
     .mini{
-      color:var(--muted);
-      font-size:13px;
-      margin-top:12px;
-    }
-    .hero-aside{padding:18px; display:flex; flex-direction:column; gap:12px}
-    .aside-top{
-      border-radius: var(--radius);
-      border:1px dashed rgba(255,255,255,.18);
-      background: rgba(255,255,255,.02);
-      padding:16px;
-      min-height: 220px;
-      display:flex; flex-direction:column; justify-content:space-between;
-    }
-    .ph{
-      height: 140px;
-      border-radius: 16px;
-      background:
-        linear-gradient(135deg, rgba(255,122,26,.18), rgba(255,255,255,.04)),
-        repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 12px, rgba(255,255,255,.02) 12px 24px);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .aside-title{font-weight:800; letter-spacing:.3px}
-    .aside-note{color:var(--muted); font-size:13px; line-height:1.45}
-    .section{padding:26px 0}
-    .section h2{
-      margin:0 0 10px;
-      font-size:24px;
-      letter-spacing:-.2px;
-    }
-    .section p{margin:0; color:var(--muted); line-height:1.65}
-    .three{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    @media (max-width: 900px){ .three{grid-template-columns:1fr} }
-    .tile{
-      padding:16px;
-      border-radius: var(--radius);
       border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
+      background: rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding: 12px 12px;
+      display:flex; justify-content:space-between; gap:10px;
     }
-    .tile b{display:block; margin-bottom:6px}
-    .products{
+    .mini span{ color: var(--muted); font-size: 13px; }
+    .mini b{ font-size: 14px; }
+
+    .section{ margin-top: 22px; }
+    .section h3{
+      margin: 18px 0 10px;
+      font-size: 16px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.86);
+    }
+
+    .flavors{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:14px;
-      margin-top:14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
-    @media (max-width: 1000px){ .products{grid-template-columns: repeat(2, 1fr)} }
-    @media (max-width: 520px){ .products{grid-template-columns: 1fr} }
-    .p-card{
-      padding:14px;
-      border-radius: var(--radius);
+    @media (max-width: 900px){
+      .flavors{ grid-template-columns: 1fr; }
+    }
+
+    .card{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+      background: rgba(0,0,0,.12);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .p-img{
-      height:120px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(500px 200px at 20% 0%, rgba(255,122,26,.22), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: rgba(255,255,255,.55);
-      font-weight:800;
-      letter-spacing:.5px;
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.32);
     }
-    .p-meta{color:var(--muted); font-size:13px; line-height:1.4}
-    .split{
+
+    .card-top{
+      padding: 14px 14px 10px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+
+    /* SAME SIZE flavor title */
+    .flavor-title{
+      margin:0;
+      font-size: 28px;            /* одинаковый размер */
+      line-height: 1.05;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .card-media{
+      padding: 0 14px 14px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:14px;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
-    @media (max-width: 900px){ .split{grid-template-columns:1fr} }
-    label{display:block; font-size:13px; color:var(--muted); margin-bottom:6px; font-weight:650}
+    .pack{
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      display:block;
+    }
+
+    .facts{
+      display:flex; flex-wrap:wrap; gap:8px;
+      padding: 0 14px 14px;
+    }
+    .chip{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+    }
+
+    .b2b{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .b2b{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .panel p{ margin:10px 0; color: var(--muted); line-height: 1.55; }
+
+    label{ display:block; font-size:12px; color: rgba(255,255,255,.78); margin: 12px 0 6px; }
     input, textarea, select{
       width:100%;
-      padding:12px 12px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+      color: var(--txt);
       border-radius: 14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.25);
-      color:var(--text);
+      padding: 12px 12px;
       outline:none;
     }
-    input:focus, textarea:focus, select:focus{border-color: rgba(255,122,26,.55)}
-    textarea{min-height:110px; resize:vertical}
-    .form-card{padding:18px}
-    .form-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
-    .fine{
-      margin-top:10px;
-      color:rgba(255,255,255,.55);
-      font-size:12px;
-      line-height:1.55;
+    textarea{ min-height: 92px; resize: vertical; }
+
+    .note{ font-size:12px; color: rgba(255,255,255,.62); margin-top:10px; }
+
+    footer{ margin-top: 18px; color: rgba(255,255,255,.65); font-size: 12px; text-align:center; }
+
+    .lang{
+      display:flex; gap:6px; align-items:center;
     }
-    .footer{
-      padding:26px 0 40px;
-      border-top: 1px solid var(--line);
-      color: rgba(255,255,255,.55);
-      font-size:13px;
-    }
-    .footer-row{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
+    .lang button{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--txt);
       border-radius: 999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      color: rgba(255,255,255,.70);
-      font-weight:700;
-      font-size:12px;
+      padding: 9px 10px;
+      cursor:pointer;
+      font-size: 12px;
     }
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .lang button.active{
+      background: rgba(255,122,26,.22);
+      border-color: rgba(255,122,26,.35);
+    }
   </style>
 </head>
 
 <body>
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="GOODATH home">
-        <span class="dot" aria-hidden="true"></span>
-        <span>GOODATH®</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#why">Why it sells</a>
-        <a href="#products">Flavors</a>
-        <a href="#partners">For retailers</a>
-        <a href="#contact">Request samples</a>
-      </nav>
-      <div style="display:flex; gap:10px; align-items:center">
-        <a class="btn" href="#contact">Become a partner</a>
-        <a class="btn primary" href="#contact">Request samples</a>
-      </div>
-    </div>
-  </header>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
 
-  <main id="top">
-    <section class="wrap hero">
-      <div class="grid">
-        <div class="card hero-card">
-          <span class="kicker">Retail & Distribution • USA</span>
-          <h1>Unforgettable flavors.<br/>Real ingredients.</h1>
-          <p class="sub">
-            GOODATH® is a premium cookie built for <b>retail velocity</b>: crave-worthy flavors,
-            clean ingredient story, and an impulse-friendly format—ideal for convenience, grocery, and distribution.
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <div class="logo" title="GOODATH">
+          <!-- Put your logo image here: /assets/logo.png -->
+          <img src="assets/logo.png" alt="GOODATH logo">
+        </div>
+        <div>
+          <h1>GOODATH</h1>
+          <small id="hdrSub">Playful cookies for retail & distribution</small>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="lang" aria-label="Language">
+          <button id="btnEN" class="active" type="button">EN</button>
+          <button id="btnRU" type="button">RU</button>
+        </div>
+        <a class="pill" href="mailto:kat@myhealthycookie.com">kat@myhealthycookie.com</a>
+        <button class="btn" type="button" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+          Request wholesale
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker" id="kicker">
+            🍪 <b>For B2B</b> • supermarkets • gas stations • distributors
+          </div>
+
+          <h2>
+            <span class="good">GOOD</span><span class="ath">ATH</span>
+            <br>
+            <span id="heroLine">Cookies your brain won’t forget.</span>
+          </h2>
+
+          <p class="sub" id="heroSub">
+            Bright flavors, clean-ish ingredients, and a look that pops on shelf. Built to be fun, fast, and memorable.
           </p>
 
           <div class="cta-row">
-            <a class="btn primary" href="#contact">Request Samples</a>
-            <a class="btn" href="#partners">Retail Partner Info</a>
-            <a class="btn" href="#sell-sheet" onclick="alert('Sell sheet: add PDF link when ready.'); return false;">Download Sell Sheet (PDF)</a>
-          </div>
-
-          <div class="mini">
-            <span class="pill">Fast onboarding</span>
-            <span class="pill">Retail-ready packaging</span>
-            <span class="pill">Details <span class="mono">available upon request</span></span>
+            <button class="btn" type="button" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" id="cta1">
+              Request samples / pricing
+            </button>
+            <button class="ghost" type="button" onclick="document.getElementById('flavors').scrollIntoView({behavior:'smooth'})" id="cta2">
+              See flavors
+            </button>
           </div>
         </div>
 
-        <aside class="card hero-aside">
-          <div class="aside-top">
-            <div class="ph" aria-hidden="true"></div>
-            <div>
-              <div class="aside-title">Add your packaging photos here</div>
-              <div class="aside-note">We’ll replace this block with your hero product image (PNG/JPG) and flavor lineup.</div>
-            </div>
-          </div>
-
-          <div class="tile">
-            <b>What buyers need in 30 seconds</b>
-            <div class="p-meta">
-              What it is • why it sells • where it sits • how to order • how to get samples.
-              This site is built exactly for that.
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="wrap section" id="why">
-      <h2>Why GOODATH sells</h2>
-      <p>Designed for repeat purchase: taste-first positioning with a real-ingredients story buyers can trust.</p>
-
-      <div class="three">
-        <div class="tile">
-          <b>Flavor memory</b>
-          <div class="p-meta">Distinct, “brain won’t forget” flavor profiles that drive word-of-mouth and re-buy.</div>
-        </div>
-        <div class="tile">
-          <b>Real ingredients</b>
-          <div class="p-meta">A clean story customers understand at a glance—no over-explaining at shelf.</div>
-        </div>
-        <div class="tile">
-          <b>Impulse-friendly</b>
-          <div class="p-meta">Perfect for checkout, snack aisle, coffee stations, and convenience locations.</div>
+        <div class="mini-cards">
+          <div class="mini"><b id="mini1a">Shelf-ready packaging</b><span id="mini1b">bold & fun</span></div>
+          <div class="mini"><b id="mini2a">Wholesale-friendly</b><span id="mini2b">fast ordering</span></div>
+          <div class="mini"><b id="mini3a">Retail support</b><span id="mini3b">assets & promos</span></div>
         </div>
       </div>
     </section>
 
-    <section class="wrap section" id="products">
-      <h2>Flavor lineup</h2>
-      <p>Replace each card with your actual pack shot + short flavor line.</p>
+    <section class="section" id="flavors">
+      <h3 id="flvTitle">Flavors</h3>
 
-      <div class="products">
-        <div class="p-card">
-          <div class="p-img">PASSION FRUIT</div>
-          <b>Passion Fruit</b>
-          <div class="p-meta">Bright tropical punch. Premium, craveable, instantly recognizable.</div>
-        </div>
-        <div class="p-card">
-          <div class="p-img">PIÑA COLADA</div>
-          <b>Piña Colada</b>
-          <div class="p-meta">Vacation vibe: pineapple + coconut notes with a smooth finish.</div>
-        </div>
-        <div class="p-card">
-          <div class="p-img">LEMON</div>
-          <b>Lemon</b>
-          <div class="p-meta">Clean citrus snap—pairs perfectly with coffee/tea occasions.</div>
-        </div>
-        <div class="p-card">
-          <div class="p-img">CHOC ORANGE</div>
-          <b>Chocolate Orange + Sea Salt</b>
-          <div class="p-meta">Rich chocolate, orange brightness, sea-salt contrast for adults.</div>
-        </div>
+      <div class="flavors">
+        <article class="card">
+          <div class="card-top">
+            <h4 class="flavor-title">CHOCOLATE ORANGE</h4>
+            <span class="tag">with sea salt</span>
+          </div>
+          <div class="card-media">
+            <!-- Put your pack image here: /assets/chocolate-orange.jpg -->
+            <img class="pack" src="assets/chocolate-orange.jpg" alt="GOODATH Chocolate Orange with Sea Salt pack">
+          </div>
+          <div class="facts">
+            <span class="chip">Real cocoa</span>
+            <span class="chip">10g protein (target)</span>
+            <span class="chip">No added sugar (target)</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <h4 class="flavor-title">PIÑA COLADA</h4>
+            <span class="tag">tropical vibe</span>
+          </div>
+          <div class="card-media">
+            <!-- Put your pack image here: /assets/pina-colada.jpg -->
+            <img class="pack" src="assets/pina-colada.jpg" alt="GOODATH PIÑA COLADA pack">
+          </div>
+          <div class="facts">
+            <span class="chip">Real ingredients</span>
+            <span class="chip">10g protein (target)</span>
+            <span class="chip">No added sugar (target)</span>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <div class="split">
-        <div class="tile">
-          <b>Retail-ready details</b>
-          <div class="p-meta">
-            UPC, case pack, SRP guidance, shelf life, and wholesale terms are available upon request
-            (we’ll add them when finalized).
-          </div>
+    <section class="section">
+      <h3 id="nutTitle">Base nutrition snapshot</h3>
+      <div class="panel">
+        <p id="nutText">
+          If useful for buyers, we can show a quick “base recipe” snapshot:
+          <b>200 calories</b>, <b>9g protein</b>, <b>5g fiber</b>, <b>0g added sugar</b>.
+        </p>
+        <p class="note" id="nutNote">
+          Note: final numbers may vary by flavor & final label approval. We’ll update once flavor panels are finalized.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 id="b2bTitle">For retailers & distributors</h3>
+
+      <div class="b2b">
+        <div class="panel">
+          <p id="b2bText">
+            Tell us what you need and we’ll reply with pricing, MOQ, case packs, and a simple way to reorder.
+          </p>
+          <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.6">
+            <li id="li1">Supermarkets & specialty grocery</li>
+            <li id="li2">Gas stations / convenience</li>
+            <li id="li3">Distributors & wholesale</li>
+          </ul>
         </div>
-        <div class="tile">
-          <b>Placement suggestions</b>
-          <div class="p-meta">
-            Convenience: checkout + coffee station • Grocery: snack aisle • Distribution: mixed cases on request.
-          </div>
+
+        <div class="panel" id="form">
+          <form onsubmit="sendEmail(); return false;">
+            <label id="lCompany">Company</label>
+            <input id="company" placeholder="e.g., Sunshine Market" required />
+
+            <label id="lRole">Role</label>
+            <input id="role" placeholder="Buyer / Distributor / Owner" />
+
+            <label id="lEmail">Email</label>
+            <input id="email" type="email" placeholder="you@company.com" required />
+
+            <label id="lPhone">Phone</label>
+            <input id="phone" placeholder="+1 (___) ___-____" />
+
+            <label id="lInterest">Interested in</label>
+            <select id="interest">
+              <option>Wholesale pricing</option>
+              <option>Samples</option>
+              <option>Distribution partnership</option>
+              <option>Private label / collaboration</option>
+            </select>
+
+            <label id="lMessage">Message</label>
+            <textarea id="message" placeholder="Tell us quantities, stores, timelines…"></textarea>
+
+            <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+              <button class="btn" type="submit" id="sendBtn">Send request</button>
+              <a class="ghost" href="mailto:kat@myhealthycookie.com" id="mailBtn" style="text-decoration:none; display:inline-flex; align-items:center;">
+                Or email us
+              </a>
+            </div>
+
+            <div class="note" id="privacy">
+              We only use this to reply to your request.
+            </div>
+          </form>
         </div>
       </div>
     </section>
 
-    <section class="wrap section" id="partners">
-      <h2>Built for retailers & distributors</h2>
-      <p>Choose your path—same product, different ordering needs.</p>
+    <footer>
+      © <span id="yr"></span> GOODATH • kat@myhealthycookie.com
+    </footer>
 
-      <div class="three">
-        <div class="tile">
-          <b>Gas stations / Convenience</b>
-          <div class="p-meta">
-            High-velocity SKU set. Great for impulse + coffee. Ask for a “starter assortment.”
-          </div>
-        </div>
-        <div class="tile">
-          <b>Supermarkets</b>
-          <div class="p-meta">
-            Premium snack positioning with a real-ingredients story. Planogram support available.
-          </div>
-        </div>
-        <div class="tile">
-          <b>Distributors / Wholesale</b>
-          <div class="p-meta">
-            Distributor-friendly onboarding. Ship and case details provided upon request.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap section" id="contact">
-      <h2>Request samples / become a retail partner</h2>
-      <p>Fill the form and we’ll reply fast from <span class="mono">kat@myhealthycookie.com</span>.</p>
-
-      <div class="card form-card" style="margin-top:14px">
-        <form id="leadForm">
-          <div class="split">
-            <div>
-              <label for="company">Company</label>
-              <input id="company" name="company" placeholder="e.g., ABC Distributors" required />
-            </div>
-            <div>
-              <label for="role">Role</label>
-              <input id="role" name="role" placeholder="Buyer / Category Manager / Owner" />
-            </div>
-          </div>
-
-          <div class="split" style="margin-top:12px">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="name@company.com" required />
-            </div>
-            <div>
-              <label for="phone">Phone (optional)</label>
-              <input id="phone" name="phone" placeholder="+1 (___) ___-____" />
-            </div>
-          </div>
-
-          <div class="split" style="margin-top:12px">
-            <div>
-              <label for="channel">Interested in</label>
-              <select id="channel" name="channel">
-                <option>Convenience / Gas stations</option>
-                <option>Supermarket / Grocery</option>
-                <option>Distributor / Wholesale</option>
-                <option>Café / Hospitality</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div>
-              <label for="state">City / State</label>
-              <input id="state" name="state" placeholder="e.g., Miami, FL" />
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us what you need: samples, pricing, onboarding, expected volumes, locations, etc."></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button class="btn primary" type="button" onclick="sendEmail()">Send email</button>
-            <a class="btn" href="mailto:kat@myhealthycookie.com?subject=GOODATH%20Retail%20Inquiry">Email directly</a>
-          </div>
-
-          <div class="fine">
-            Note: pricing, MOQ, case pack, shelf life, and shipping details are provided upon request (we’ll add them to the site once finalized).
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <section class="wrap footer">
-      <div class="footer-row">
-        <div>© <span id="y"></span> GOODATH®. All rights reserved.</div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap">
-          <span class="pill">B2B: <span class="mono">kat@myhealthycookie.com</span></span>
-          <a class="pill" href="#top">Back to top</a>
-        </div>
-      </div>
-    </section>
-  </main>
+  </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
     function sendEmail(){
-      const f = document.getElementById('leadForm');
-      const company = encodeURIComponent(f.company.value || '');
-      const role = encodeURIComponent(f.role.value || '');
-      const email = encodeURIComponent(f.email.value || '');
-      const phone = encodeURIComponent(f.phone.value || '');
-      const channel = encodeURIComponent(f.channel.value || '');
-      const state = encodeURIComponent(f.state.value || '');
-      const message = encodeURIComponent(f.message.value || '');
+      const company = encodeURIComponent(document.getElementById('company').value.trim());
+      const role = encodeURIComponent(document.getElementById('role').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+      const interest = encodeURIComponent(document.getElementById('interest').value);
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
 
-      const subject = encodeURIComponent('GOODATH — Retail/Distribution Inquiry');
+      const subject = `GOODATH Wholesale Request — ${decodeURIComponent(company) || 'New lead'}`;
       const body =
-        `Company: ${decodeURIComponent(company)}%0D%0A` +
-        `Role: ${decodeURIComponent(role)}%0D%0A` +
-        `Email: ${decodeURIComponent(email)}%0D%0A` +
-        `Phone: ${decodeURIComponent(phone)}%0D%0A` +
-        `Interested in: ${decodeURIComponent(channel)}%0D%0A` +
-        `City/State: ${decodeURIComponent(state)}%0D%0A%0D%0A` +
-        `Message:%0D%0A${decodeURIComponent(message)}%0D%0A`;
+`Company: ${decodeURIComponent(company)}
+Role: ${decodeURIComponent(role)}
+Email: ${decodeURIComponent(email)}
+Phone: ${decodeURIComponent(phone)}
+Interested in: ${decodeURIComponent(interest)}
 
-      const mailto = `mailto:kat@myhealthycookie.com?subject=${subject}&body=${body}`;
+Message:
+${decodeURIComponent(message)}`;
+
+      const mailto = `mailto:kat@myhealthycookie.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
     }
+
+    // Language toggle (simple EN/RU)
+    const t = {
+      EN: {
+        hdrSub: "Playful cookies for retail & distribution",
+        kicker: "🍪 For B2B • supermarkets • gas stations • distributors",
+        heroLine: "Cookies your brain won’t forget.",
+        heroSub: "Bright flavors, clean-ish ingredients, and a look that pops on shelf. Built to be fun, fast, and memorable.",
+        cta1: "Request samples / pricing",
+        cta2: "See flavors",
+        mini1a: "Shelf-ready packaging", mini1b: "bold & fun",
+        mini2a: "Wholesale-friendly", mini2b: "fast ordering",
+        mini3a: "Retail support", mini3b: "assets & promos",
+        flvTitle: "Flavors",
+        nutTitle: "Base nutrition snapshot",
+        nutText: "If useful for buyers, we can show a quick “base recipe” snapshot: 200 calories, 9g protein, 5g fiber, 0g added sugar.",
+        nutNote: "Note: final numbers may vary by flavor & final label approval. We’ll update once flavor panels are finalized.",
+        b2bTitle: "For retailers & distributors",
+        b2bText: "Tell us what you need and we’ll reply with pricing, MOQ, case packs, and a simple way to reorder.",
+        li1:"Supermarkets & specialty grocery",
+        li2:"Gas stations / convenience",
+        li3:"Distributors & wholesale",
+        lCompany:"Company", lRole:"Role", lEmail:"Email", lPhone:"Phone", lInterest:"Interested in", lMessage:"Message",
+        sendBtn:"Send request", mailBtn:"Or email us", privacy:"We only use this to reply to your request."
+      },
+      RU: {
+        hdrSub: "Весёлые печеньки для ритейла и дистрибуции",
+        kicker: "🍪 Для B2B • супермаркеты • заправки • дистрибьюторы",
+        heroLine: "Вкусы, которые мозг не забывает.",
+        heroSub: "Яркие вкусы, понятные ингредиенты и упаковка, которая «цепляет» на полке. Быстро, легко и запоминаемо.",
+        cta1: "Запросить прайс / сэмплы",
+        cta2: "Смотреть вкусы",
+        mini1a: "Упаковка для полки", mini1b: "ярко и вкусно",
+        mini2a: "Удобно для опта", mini2b: "быстрый заказ",
+        mini3a: "Поддержка ритейла", mini3b: "промо-материалы",
+        flvTitle: "Вкусы",
+        nutTitle: "База: нутри-снимок",
+        nutText: "Если полезно для закупщиков — можем показать короткий снимок «базы»: 200 ккал, 9 г белка, 5 г клетчатки, 0 г добавленного сахара.",
+        nutNote: "Важно: финальные цифры могут отличаться по вкусам и после утверждения этикетки. Обновим, когда панели вкусов будут готовы.",
+        b2bTitle: "Для ритейла и дистрибьюторов",
+        b2bText: "Напиши, что нужно — ответим с прайсом, MOQ, кейс-паком и простым способом повторного заказа.",
+        li1:"Супермаркеты и specialty",
+        li2:"Заправки / convenience",
+        li3:"Дистрибьюторы и опт",
+        lCompany:"Компания", lRole:"Роль", lEmail:"Email", lPhone:"Телефон", lInterest:"Интересует", lMessage:"Сообщение",
+        sendBtn:"Отправить запрос", mailBtn:"Или написать email", privacy:"Используем данные только чтобы ответить."
+      }
+    };
+
+    function setLang(lang){
+      document.getElementById('btnEN').classList.toggle('active', lang==='EN');
+      document.getElementById('btnRU').classList.toggle('active', lang==='RU');
+      const map = t[lang];
+      for(const id in map){
+        const el = document.getElementById(id);
+        if(el) el.textContent = map[id];
+      }
+    }
+
+    document.getElementById('btnEN').onclick = () => setLang('EN');
+    document.getElementById('btnRU').onclick = () => setLang('RU');
   </script>
 </body>
 </html>
